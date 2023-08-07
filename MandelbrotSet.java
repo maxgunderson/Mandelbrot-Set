@@ -25,21 +25,21 @@ public class MandelbrotSet extends JPanel {
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
+    protected void paintComponent(Graphics g) { 
         super.paintComponent(g);
 
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                float cReal = map(x, 0, width, lowerRange, upperRange);
-                float cImag = map(y, 0, height, lowerRange, upperRange);
+                float cReal = map(x, 0, width, lowerRange, upperRange); // Map X cord
+                float cImag = map(y, 0, height, lowerRange, upperRange); // Map Y cord
 
-                float zReal = 0;
+                float zReal = 0; // Z values start at 0 
                 float zImag = 0;
 
                 int i = 0;
 
                 while (i < maxIterations && (zReal * zReal) + (zImag * zImag) < 4) {
-                    float real = zReal * zReal - zImag * zImag + cReal;
+                    float real = zReal * zReal - zImag * zImag + cReal; 
                     float imag = 2 * zReal * zImag + cImag;
 
                     zReal = real;
@@ -49,7 +49,7 @@ public class MandelbrotSet extends JPanel {
                 }
 
                 if (i == maxIterations) {
-                    Color color = new Color(0, 0, 0);
+                    Color color = new Color(0, 0, 0); 
                     g.setColor(color);
                     g.fillRect(x, y, 1, 1);
 
